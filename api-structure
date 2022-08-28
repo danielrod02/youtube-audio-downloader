@@ -1,0 +1,8 @@
+GET /api/v1/download-audio?url=<media-url>
+    Makes the server to download the audio at the media-url. If succesful, 
+    it returns a valid download link to the extracted audio file. On failure 
+    returns 'FAIL'
+
+GET /api/v1/downloaded-media
+    Gets a list of the files in the 'media' folder as a json array. On failure 
+    returns 'FAIL'

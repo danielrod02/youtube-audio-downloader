@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+    <title>Youtube Music Downloader</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+        body {
+            padding: 0 5vw;
+        }
+        html {
+            font-family: 'Poppins', sans-serif;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        form > fieldset {
+            border-radius: 5px;
+            border: 3px solid lightgrey;
+        }
+        ul.form-controls {
+            list-style-type: none;
+            padding-inline-start: 0;
+            margin-block-start: 0;
+        }
+        [for="url-input"] {
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+        ul.form-controls > li {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #url-input {
+            width: max(50vw, 230px);
+            border: solid 3px black;
+            border-radius: 5px;
+            margin-left: 10px;
+            font-family: 'IBM Plex Mono', monospace;
+            padding: 3px 5px;
+        }
+        .download-link-cont {
+            width: 100%;
+            height: 100px;
+            background-color: lightgoldenrodyellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .download-link-cont > p {
+            display: none;
+            font-size: 1.3rem;
+        }
+        [type="button"] {
+            text-transform: uppercase;
+            font-weight: bold;
+            border: 2px solid black;
+            transition: opacity 0.1s;
+        }
+        #download-btn:active {
+            opacity: 0.5;
+        }
+        .animated-btn {
+            animation-name: push;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: none;
+            animation-duration: 0.2s;
+        }
+        @keyframes push {
+            from {
+                box-shadow: 0 0 0 0 rgba(250, 250, 210, 0);
+                border-color: black;
+                color: black;
+                background-color: rgba(239, 239, 239);
+            }
+            50% {
+                box-shadow: 0 0 30px 10px rgba(250, 250, 210, .7);
+                border-color: lightgoldenrodyellow;
+                color: lightgoldenrodyellow;
+                background-color: rgba(255, 255, 0, 0.5);
+            }
+            to {
+                box-shadow: 0 0 50px 25px rgba(250, 250, 210, 0);
+                border-color: black;
+                color: black;
+                background-color: rgba(239, 239, 239);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Music Downloader</h1>
+    <form action="">
+        <fieldset>
+            <legend>Enter the url</legend>
+            <ul class="form-controls">
+                <li>
+                    <label for="url-input">
+                        Video url
+                    </label>
+                    <br>
+                    <input id="url-input" type="url">
+                </li>
+                <li>
+                    <input type="button" id="download-btn" value="Download">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+
+    <div class="download-link-cont">
+        <p>Click here to download: <a download class="download-link" href=""></a></p>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        const downloadBtn = document.getElementById('download-btn');
+        const downloadSection = document.querySelector('.download-link-cont > p');
+        const downloadLink = document.querySelector('.download-link');
+        const urlInput = document.getElementById('url-input');
+        downloadBtn.addEventListener('click', async (e) => {
+            downloadBtn.classList.add('animated-btn');
+            downloadBtn.addEventListener('animationend', () => {
+                downloadBtn.classList.remove('animated-btn');
+            });
+
+            document.querySelector('body').style.backgroundColor = 'red';
+            const reqUrl = new URL('/api/v1/download-audio', document.location.origin);
+            reqUrl.searchParams.append("url", urlInput.value);
+            res = await fetch(reqUrl);
+            document.querySelector('body').style.backgroundColor = 'white';
+            if (!res.ok) {
+                return;
+            }
+
+            const resText = await res.text();
+            downloadLink.innerText = 'here';
+            downloadLink.href = resText;
+            downloadSection.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
