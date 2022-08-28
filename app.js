@@ -42,7 +42,6 @@ app.get('/api/v1/download-audio', async (req, res, next) => {
         res.send(`ALREADY_DOWNLOADED ${alreadyDownloaded}`);
         return next();
     }
-    console.log(stdout);
 
     try {
         const filename = extractMediaName(stdout);

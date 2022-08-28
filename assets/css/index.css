@@ -28,6 +28,15 @@ form > fieldset {
     border-radius: 10px 10px 0 0;
     border: 3px solid lightgrey;
     border-bottom: solid white 3px;
+    border-image: linear-gradient(lightgrey, white) 10;
+}
+legend {
+    background-color: black;
+    color: white;
+    padding: 2px 8px;
+    border: solid 3px lightgoldenrodyellow;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
 }
 ul.form-controls {
     list-style-type: none;
@@ -66,11 +75,16 @@ ul.form-controls > li {
 [type="button"] {
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 1.05rem;
     border: 2px solid black;
-    transition: opacity 0.1s;
+    transition: opacity 0.1s, transform 0.2s ease-in-out;
 }
 #download-btn:active {
     opacity: 0.5;
+}
+[type="button"]:hover {
+    cursor: pointer;
+    transform: scale(1.07);
 }
 
 
