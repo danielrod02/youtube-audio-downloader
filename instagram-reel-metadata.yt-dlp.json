@@ -1,0 +1,94 @@
+{
+    "id": "ChxEaY6vKy-",
+    "formats": [
+        {
+            "url": "https://scontent.cdninstagram.com/v/t50.2886-16/302036948_105703472214997_5089952434071387893_n.mp4?_nc_ht=scontent.cdninstagram.com&_nc_cat=101&_nc_ohc=W5Y6N6WBPP8AX8QMjmg&edm=AJBgZrYBAAAA&ccb=7-5&oe=630DDE18&oh=00_AT9LieHyMWZXRsVNLy1apOpiLzdEeGHPRyKP7iu_xdJPSw&_nc_sid=78c662",
+            "width": 750,
+            "height": 1333,
+            "protocol": "https",
+            "ext": "mp4",
+            "video_ext": "mp4",
+            "audio_ext": "none",
+            "format_id": "0",
+            "format": "0 - 750x1333",
+            "resolution": "750x1333",
+            "dynamic_range": "SDR",
+            "http_headers": {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-us,en;q=0.5",
+                "Sec-Fetch-Mode": "navigate",
+                "Referer": "https://www.instagram.com/"
+            }
+        }
+    ],
+    "title": "Video by greenfitss",
+    "description": "Listos para la UFC! \n.\n.\n.\n#ufc #mma #ko #listos",
+    "timestamp": 1661611405,
+    "uploader_id": "4618651221",
+    "uploader": null,
+    "channel": "greenfitss",
+    "like_count": 6446,
+    "comment_count": 336,
+    "comments": null,
+    "thumbnails": [
+        {
+            "url": "https://scontent.cdninstagram.com/v/t51.2885-15/301495829_1056348861529900_7507227695651064768_n.jpg?stp=dst-jpg_e15_p640x640&_nc_ht=scontent.cdninstagram.com&_nc_cat=104&_nc_ohc=PXBmjSDLDKMAX_F30v8&edm=AJBgZrYBAAAA&ccb=7-5&oh=00_AT8-Xji9TdC1Wy4tIGKmIkhqEoGYOtsbXCqq9CXM6WVQjw&oe=630D981E&_nc_sid=78c662",
+            "width": 640,
+            "height": 1137,
+            "id": "0",
+            "resolution": "640x1137"
+        },
+        {
+            "url": "https://scontent.cdninstagram.com/v/t51.2885-15/301495829_1056348861529900_7507227695651064768_n.jpg?stp=dst-jpg_e15&_nc_ht=scontent.cdninstagram.com&_nc_cat=104&_nc_ohc=PXBmjSDLDKMAX_F30v8&edm=AJBgZrYBAAAA&ccb=7-5&oh=00_AT8Wa-cqtfZKWYIVheNzwfWF9psAwEQqmjHs9UUnQgiieQ&oe=630D981E&_nc_sid=78c662",
+            "width": 750,
+            "height": 1333,
+            "id": "1",
+            "resolution": "750x1333"
+        },
+        {
+            "url": "https://scontent.cdninstagram.com/v/t51.2885-15/301495829_1056348861529900_7507227695651064768_n.jpg?stp=dst-jpg_e15&_nc_ht=scontent.cdninstagram.com&_nc_cat=104&_nc_ohc=PXBmjSDLDKMAX_F30v8&edm=AJBgZrYBAAAA&ccb=7-5&oh=00_AT8Wa-cqtfZKWYIVheNzwfWF9psAwEQqmjHs9UUnQgiieQ&oe=630D981E&_nc_sid=78c662",
+            "width": 1080,
+            "height": 1920,
+            "id": "2",
+            "resolution": "1080x1920"
+        }
+    ],
+    "http_headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-us,en;q=0.5",
+        "Sec-Fetch-Mode": "navigate",
+        "Referer": "https://www.instagram.com/"
+    },
+    "webpage_url": "https://www.instagram.com/reel/ChxEaY6vKy-/",
+    "original_url": "https://www.instagram.com/reel/ChxEaY6vKy-/",
+    "webpage_url_basename": "ChxEaY6vKy-",
+    "webpage_url_domain": "instagram.com",
+    "extractor": "Instagram",
+    "extractor_key": "Instagram",
+    "playlist": null,
+    "playlist_index": null,
+    "thumbnail": "https://scontent.cdninstagram.com/v/t51.2885-15/301495829_1056348861529900_7507227695651064768_n.jpg?stp=dst-jpg_e15&_nc_ht=scontent.cdninstagram.com&_nc_cat=104&_nc_ohc=PXBmjSDLDKMAX_F30v8&edm=AJBgZrYBAAAA&ccb=7-5&oh=00_AT8Wa-cqtfZKWYIVheNzwfWF9psAwEQqmjHs9UUnQgiieQ&oe=630D981E&_nc_sid=78c662",
+    "display_id": "ChxEaY6vKy-",
+    "fulltitle": "Video by greenfitss",
+    "upload_date": "20220827",
+    "requested_subtitles": null,
+    "_has_drm": null,
+    "url": "https://scontent.cdninstagram.com/v/t50.2886-16/302036948_105703472214997_5089952434071387893_n.mp4?_nc_ht=scontent.cdninstagram.com&_nc_cat=101&_nc_ohc=W5Y6N6WBPP8AX8QMjmg&edm=AJBgZrYBAAAA&ccb=7-5&oe=630DDE18&oh=00_AT9LieHyMWZXRsVNLy1apOpiLzdEeGHPRyKP7iu_xdJPSw&_nc_sid=78c662",
+    "width": 750,
+    "height": 1333,
+    "protocol": "https",
+    "ext": "mp4",
+    "video_ext": "mp4",
+    "audio_ext": "none",
+    "format_id": "0",
+    "format": "0 - 750x1333",
+    "resolution": "750x1333",
+    "dynamic_range": "SDR",
+    "epoch": 1661699067,
+    "_filename": "Video by greenfitss [ChxEaY6vKy-].mp4",
+    "filename": "Video by greenfitss [ChxEaY6vKy-].mp4",
+    "urls": "https://scontent.cdninstagram.com/v/t50.2886-16/302036948_105703472214997_5089952434071387893_n.mp4?_nc_ht=scontent.cdninstagram.com&_nc_cat=101&_nc_ohc=W5Y6N6WBPP8AX8QMjmg&edm=AJBgZrYBAAAA&ccb=7-5&oe=630DDE18&oh=00_AT9LieHyMWZXRsVNLy1apOpiLzdEeGHPRyKP7iu_xdJPSw&_nc_sid=78c662",
+    "_type": "video"
+}

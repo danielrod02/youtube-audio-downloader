@@ -4,5 +4,15 @@ GET /api/v1/download-audio?url=<media-url>
     returns 'FAIL'
 
 GET /api/v1/downloaded-media
-    Gets a list of the files in the 'media' folder as a json array. On failure 
-    returns 'FAIL'
+    Gets a list of the files in the 'media' folder as a json array. 
+    On failure returns 'FAIL'
+    If the media has already been downloaded it'll return 'ALREADY_DOWNLOADED <name-of-media-file>'
+
+GET /api/v1/media-metadata?url=<media-url>
+    Gets an object in JSON format with the following propeties:
+        - title
+        - artist
+        - thumbnail
+        - channel
+        - release_year
+        - duration
