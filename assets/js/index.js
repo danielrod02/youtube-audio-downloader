@@ -5,8 +5,43 @@ const mainTitle = document.querySelector('h1');
 const urlInput = document.getElementById('url-input');
 const downloadedBanner = document.querySelector('.already-downloaded-banner');
 const loadingBar = document.querySelector('.loading-bar');
+const showSidepanelBtn = document.querySelector('.toggle-sidepanel');
+const closeSidepanelBtn = document.getElementById('close-side-panel');
+const sidePanel = document.querySelector('.files-panel');
+const filesList = document.querySelector('.files-list');
 
 
+function addFileToList(link) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = link;
+    a.toggleAttribute('download');
+    a.innerText = decodeURIComponent(link.replace('/media/', ''));
+    li.appendChild(a);
+    filesList.appendChild(li);
+}
+const getFilesUrl = new URL(
+    '/api/v1/downloaded-media',
+    document.location.origin
+);
+(fetch(getFilesUrl)).then((res) => {
+    return res.json();
+}).then((files) => {
+    files.forEach(addFileToList);
+});
+
+
+
+
+showSidepanelBtn.addEventListener('click', (e) => {
+    sidePanel.classList.add('files-panel__OPEN');
+});
+closeSidepanelBtn.addEventListener('click', (e) => {
+    sidePanel.classList.remove('files-panel__OPEN');
+});
+
+
+// For the animation
 downloadBtn.addEventListener('click', (e) => {
     downloadBtn.classList.add('animated-btn');
     downloadBtn.addEventListener('animationend', () => {
@@ -14,7 +49,7 @@ downloadBtn.addEventListener('click', (e) => {
     });
 });
 
-
+// To make the API to download
 downloadBtn.addEventListener('click', async (e) => {
     if (urlInput.value === '') {
         return;
@@ -24,7 +59,7 @@ downloadBtn.addEventListener('click', async (e) => {
     const reqUrl = new URL('/api/v1/download-audio', document.location.origin);
 
     reqUrl.searchParams.append("url", urlInput.value);
-    res = await fetch(reqUrl);
+    const res = await fetch(reqUrl);
     mainTitle.classList.remove('blinking-title');
     loadingBar.style.opacity = 0;
     setTimeout(() => {
@@ -59,6 +94,7 @@ downloadBtn.addEventListener('click', async (e) => {
         }, 6000);
         return;
     }
+    addFileToList(resText);
     downloadLink.innerText = 'here';
     downloadLink.href = resText;
     downloadSection.style.display = 'block';
