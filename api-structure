@@ -1,7 +1,10 @@
 GET /api/v1/download-audio?url=<media-url>
-    Makes the server to download the audio at the media-url. If succesful, 
-    it returns a valid download link to the extracted audio file. On failure 
-    returns 'FAIL'
+    Makes the server to download the audio at the media-url. If succesful,
+    it returns a JSON object with 2 props: `downloadLink`, that contains the 
+    download link for the file, and `banner`, which is the url to the thumbnail
+    of the video/song. If for some reason the audio is downloaded succesfully 
+    but the metadata with the thumbnail's link doesn't `banner` will be 'FAIL'. 
+    On failure returns 'FAIL'
 
 GET /api/v1/downloaded-media
     Gets a list of the files in the 'media' folder as a json array. 

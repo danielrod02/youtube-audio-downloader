@@ -1,9 +1,6 @@
-- Change the way that the app show the download link to the user
 - Make the app to get the metadata of the video when a download link has been in
 the input field for more than 3 seconds, and display the thumbnail and metada 
 info
-- Add help, info, contact info to the page
-- Make the media folder to get erased every 30 min
 - Add icons
 - Capture the event when the user presses enter while on the input field
 - Solve responsiveness issues of the site
