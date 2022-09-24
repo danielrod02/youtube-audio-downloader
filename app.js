@@ -8,6 +8,7 @@ const express = require('express');
 
 const extractMediaName = require('./extractMediaName.js');
 const wasDownloaded = require('./wasDownloaded.js');
+const getMediaMetadata = require('./getMediaMetadata.js');
 
 const app = express();
 const appDir = resolve(__dirname);
@@ -43,9 +44,20 @@ app.get('/api/v1/download-audio', async (req, res, next) => {
         return next();
     }
 
+    let metadata = null;
+    try {
+        metadata = await getMediaMetadata(mediaUrl);
+    } catch (e) {
+        // continue
+    }
+
     try {
         const filename = extractMediaName(stdout);
-        res.send(`/media/${encodeURIComponent(filename)}`);
+        const downloadLink = `/media/${encodeURIComponent(filename)}`;
+        res.json({
+            downloadLink,
+            metadata: metadata === null ? null : metadata
+        });
     } catch (e) {
         res.send("FAIL");
         return next();
@@ -73,35 +85,14 @@ app.get('/api/v1/downloaded-media', async (req, res, next) => {
 
 app.get('/api/v1/media-metadata', async (req, res, next) => {
     const mediaUrl = decodeURIComponent(req.query.url);
-    let cmdResult;
     try {
-        cmdResult = await exec(
-            `yt-dlp -j "${mediaUrl}"`
-        );
-        const {stdout, stderr} = cmdResult;
-        const {
-            title,
-            artist,
-            thumbnail,
-            channel,
-            release_year,
-            duration_string: duration
-        } = JSON.parse(stdout);
-        const metadata = {
-            title,
-            artist,
-            thumbnail,
-            channel,
-            release_year,
-            duration
-        }
+        const metadata = await getMediaMetadata(mediaUrl);
         res.json(metadata);
     } catch (e) {
         console.error(e);
         res.send("FAIL");
         return next();
     }
-
 });
 
 app.listen(port, () => {

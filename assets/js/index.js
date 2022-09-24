@@ -94,8 +94,28 @@ downloadBtn.addEventListener('click', async (e) => {
         }, 6000);
         return;
     }
-    addFileToList(resText);
-    downloadLink.innerText = 'here';
-    downloadLink.href = resText;
+    let resObj = JSON.parse(resText);
+    addFileToList(resObj.downloadLink);
+    const styleSheet = Array.from(document.styleSheets).find(
+        ss => ss.href == 'http://localhost:8080/pub/css/index.css'
+    );
+    const downloadLinkStyle = Array.from(
+        styleSheet.cssRules
+    ).find(
+        rule => rule.selectorText == ".download-link-cont"
+    );
+    console.log(resObj);
+    downloadLinkStyle.style.backgroundImage = `
+        linear-gradient(to right, transparent 30%, transparent 35% 65%, transparent 70%),
+        url("${resObj.metadata.thumbnail}")
+    `;
+    downloadLink.innerText = 'Save';
+    downloadLink.href = resObj.downloadLink;
     downloadSection.style.display = 'block';
+    
+    const audioTitle = document.createElement('span');
+    audioTitle.classList.add('download-title');
+    audioTitle.innerText = `${resObj.metadata.channel} - ${resObj.metadata.title}`;
+    downloadLink.before(audioTitle);
+    downloadLink.before(document.createElement('br'));
 });
