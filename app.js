@@ -3,8 +3,10 @@
 const { promisify } = require('util');
 const exec  = promisify(require('child_process').exec);
 const { resolve, dirname } = require('path');
-const { opendir } = require('fs/promises');
+const { opendir, readdir } = require('fs/promises');
+const { unlinkSync, statSync: stat } = require('fs');
 const express = require('express');
+const { fork } = require('child_process');
 
 const extractMediaName = require('./extractMediaName.js');
 const wasDownloaded = require('./wasDownloaded.js');
@@ -13,6 +15,18 @@ const getMediaMetadata = require('./getMediaMetadata.js');
 const app = express();
 const appDir = resolve(__dirname);
 const port = 8080;
+
+const child = fork(__dirname + '/cleanUpWorker.js');
+child.on('message', (m) => {
+    if (m == 1) {
+        console.log('Clean up SUCCESSFUL');
+    } else {
+        console.log('Clean up FAILED');
+    }
+});
+child.on('close', (code) => {
+    console.log(`Child process exited with code ${code}`);
+});
 
 // Middleware
 app.use('/media', express.static(resolve(appDir, 'media')));
