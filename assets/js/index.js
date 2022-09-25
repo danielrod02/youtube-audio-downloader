@@ -113,9 +113,14 @@ downloadBtn.addEventListener('click', async (e) => {
     downloadLink.href = resObj.downloadLink;
     downloadSection.style.display = 'block';
     
-    const audioTitle = document.createElement('span');
-    audioTitle.classList.add('download-title');
-    audioTitle.innerText = `${resObj.metadata.channel} - ${resObj.metadata.title}`;
-    downloadLink.before(audioTitle);
-    downloadLink.before(document.createElement('br'));
+    if (downloadLink.previousElementSibling) {
+        downloadLink.parentElement.firstElementChild.innerText = 
+            `${resObj.metadata.channel} - ${resObj.metadata.title}`;
+    } else {
+        const audioTitle = document.createElement('span');
+        audioTitle.classList.add('download-title');
+        audioTitle.innerText = `${resObj.metadata.channel} - ${resObj.metadata.title}`;
+        downloadLink.before(audioTitle);
+        downloadLink.before(document.createElement('br'));
+    }
 });
