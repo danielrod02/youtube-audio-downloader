@@ -1,4 +1,5 @@
 const downloadBtn = document.getElementById('download-btn');
+const urlForm = document.getElementById('url-form');
 const downloadSection = document.querySelector('.download-link-cont > p');
 const downloadLink = document.querySelector('.download-link');
 const mainTitle = document.querySelector('h1');
@@ -31,6 +32,10 @@ const getFilesUrl = new URL(
 });
 
 
+urlForm.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    downloadBtn.click();
+});
 
 
 showSidepanelBtn.addEventListener('click', (e) => {
